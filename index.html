@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang='en' xmlns='http://www.w3.org/1999/html'>
+<html lang='en'>
 <head>
-    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <meta charset='UTF-8'>
-    <title>Messenger</title>
-<link href="style.css" rel="stylesheet"></head>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+    <title>Messages</title>
+<link href="home-style.css" rel="stylesheet"></head>
 
 <body>
-<section class='chat'></section>
-<section class='header'></section>
+<header>
+    <button class='header-button'><span class='material-icons header-button'>menu</span></button>
+    <div class='page-title'><span>Messenger</span></div>
+    <button class='header-button'><span class='material-icons header-button'>search</span></button>
+</header>
 
-<form class='form' action='/'>
-    <section class='footer'>
-        <label><input class='form-input' name='message-text' placeholder='Сообщение' type='text'></label>
-        <button class="footer-button attachment-button">
-            <span class="material-icons attachment-button">attachment</span>
-        </button>
-    </section>
-</form>
-<script type="text/javascript" src="bundle.js"></script></body>
+<section class='im'></section>
+
+<button class='new-chat-button'>
+    <span class='material-icons new-chat-label'>edit_square</span>
+</button>
+<script type="text/javascript" src="home-bundle.js"></script></body>
 </html>
