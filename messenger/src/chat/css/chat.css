@@ -1,0 +1,60 @@
+.chat {
+    display: flex;
+    margin-top: 17em;
+    padding-bottom: 17em;
+    flex-direction: column-reverse;
+    scroll-behavior: smooth;
+    gap: 3em;
+}
+
+.message-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    overflow-wrap: anywhere;
+    border-radius: 3em;
+    padding: 2em;
+    background-color: lightgreen;
+    outline: 1px gray;
+    gap: 1em;
+}
+
+.message-companion {
+    margin-left: 2em;
+    align-self: flex-start;
+}
+
+.message-user {
+    margin-right: 2em;
+    align-self: flex-end;
+}
+
+.message-text {
+    align-self: flex-end;
+    line-height: 1em;
+    font-size: 3.5em;
+    color: black;
+}
+
+.message-meta {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 1em;
+    margin-top: 10px;
+}
+
+.message-date {
+    color: gray;
+    align-self: center;
+    font-size: 2.5em;
+}
+
+.message-status {
+    align-self: center;
+    color: purple;
+}
+
+.material-icons.message-status {
+    font-size: 3em;
+}
