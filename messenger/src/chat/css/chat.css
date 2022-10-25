@@ -29,10 +29,6 @@
     align-self: flex-end;
 }
 
-.companion-avatar {
-    border-radius: 50%;
-}
-
 .message-text {
     align-self: flex-end;
     line-height: 1em;

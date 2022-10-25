@@ -6,12 +6,11 @@ import './css/new_chat.css'
 const im = document.querySelector('.im')
 const username = 'sharkizz'
 
-if (!localStorage.length || localStorage.length === 1) mockLocalStorage()
-
+mockLocalStorage()
 renderChatList()
 
 function openChat(id) {
-    window.location.href = `./chat.html?id=${id}`
+    window.location.href = `../chat.html?id=${id}`
 }
 
 function renderChatList() {
@@ -59,7 +58,7 @@ function buildChat(companion, lastMessage, messageCounter, time, isTagged, statu
         openChat(chatId);
     });
 
-    avatar.src = 'https://via.placeholder.com/128'
+    avatar.src = `../static/temp_avatars/${chatId}.png`
     avatar.alt = 'avatar'
 
     chat.className = 'chat'

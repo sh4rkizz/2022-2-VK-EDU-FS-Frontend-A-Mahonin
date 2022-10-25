@@ -9,15 +9,14 @@ const chat = document.querySelector('.chat')
 form.addEventListener('keypress', handleKeyPress.bind())
 form.addEventListener('submit', handleSubmit.bind())
 
-let id = new URLSearchParams(window.location.search).get('id')
-
+const id = new URLSearchParams(window.location.search).get('id')
 const thisChat = getChatById(id)
 
 renderMessages()
 createHeader()
 
 function goBack() {
-    window.location.href = `./index.html`
+    window.location.href = `../index.html`
 }
 
 function getChatById(chatId) {
@@ -41,11 +40,7 @@ function createHeader() {
         companionName = document.createElement('span'),
         companionLastOnline = document.createElement('span')
 
-    let goBackButton = document.querySelector("header").querySelector('.header-button:first-child')
-
-    goBackButton.onclick = goBack
-
-    companionAvatar.src = 'https://via.placeholder.com/128'
+    companionAvatar.src = `../static/temp_avatars/${thisChat.id}.png`
     companionAvatar.alt = 'profile_pic'
 
     companionInfo.className = 'companion-info'
