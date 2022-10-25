@@ -26,7 +26,8 @@
 }
 
 .chat-image {
-    margin-left: 1em;
+    margin-left: 4em;
+    border-radius: 50%;
     height: 12em;
     width: 12em;
 }
@@ -44,20 +45,24 @@
     padding-top: 1em;
 }
 
-.chat-time {
-    font-size: 3em;
-    color: gray;
-}
-
 .chat-meta {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: 5em;
     padding-left: 4em;
+    padding-bottom: 1em;
     border-bottom: 1px solid gray;
-    gap: 3em;
+    gap: 1em;
+}
+
+.chat-time {
+    max-width: 3em;
+    line-height: 1em;
+    font-size: 3em;
+    color: gray;
 }
 
 .material-icons.chat-status {
