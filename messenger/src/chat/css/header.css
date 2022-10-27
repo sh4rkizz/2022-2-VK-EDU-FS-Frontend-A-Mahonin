@@ -1,0 +1,57 @@
+header {
+    display: flex;
+    position: fixed;
+    background-color: purple;
+    width: 100%;
+    height: 15em;
+    top: 0;
+}
+
+.companion-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 5em;
+    color: white;
+    align-items: center;
+}
+
+.companion-avatar {
+    height: 2.2em;
+    width: 2.2em;
+}
+
+.companion-meta {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5em;
+    gap: 0.6em;
+}
+
+.companion-name {
+    color: white;
+    max-width: 15em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.companion-online {
+    color: lightgray;
+    font-size: 0.5em;
+}
+
+.header-button {
+    background-color: purple;
+    flex-basis: 14em;
+    color: white;
+    border: 0;
+}
+
+.material-icons.header-button {
+    font-size: 6em;
+}
+
+/* Just for now, change later */
+.header-button:active {
+    background-color: rgba(211, 211, 211, 0.15);
+}

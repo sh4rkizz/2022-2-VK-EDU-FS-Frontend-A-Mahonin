@@ -1,0 +1,101 @@
+.im {
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    border-bottom: 1px gray;
+}
+
+.chat {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2em;
+    width: 100%;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5em;
+    padding-right: 7em;
+    padding-top: 3em;
+    border-bottom: 1px solid gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-image {
+    margin-left: 3em;
+    border-radius: 50%;
+    height: 12em;
+    width: 12em;
+}
+
+.chat-companion-name {
+    display: flex;
+    color: black;
+    font-size: 3em;
+}
+
+.chat-last-message {
+    display: flex;
+    color: gray;
+    font-size: 3em;
+    padding-top: 1em;
+}
+
+.chat-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 5em;
+    padding-left: 4em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid gray;
+    gap: 1em;
+}
+
+.chat-time {
+    max-width: 3em;
+    line-height: 1em;
+    font-size: 3em;
+    color: gray;
+}
+
+.material-icons.chat-status {
+    font-size: 4em;
+    align-self: center;
+}
+
+.chat-message-count-block {
+    display: flex;
+    border-radius: 30%;
+    background-color: purple;
+    height: 4em;
+    min-width: 5em;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-message-count-block.tagged {
+    background-color: yellow;
+}
+
+.chat-message-count {
+    display: flex;
+    color: white;
+    font-size: 2.5em;
+}
+
+.chat-message-count.tagged {
+    color: black;
+}
+
+.chat:active {
+    background-color: lightblue;
+    box-shadow: 0 0 10em lightblue;
+}

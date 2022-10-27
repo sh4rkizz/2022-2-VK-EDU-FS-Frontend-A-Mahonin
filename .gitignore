@@ -131,4 +131,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 /desktop.ini
-*/build
+*/build/
+*/package-lock.json
