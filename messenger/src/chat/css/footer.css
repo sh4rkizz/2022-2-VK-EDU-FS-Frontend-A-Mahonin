@@ -2,8 +2,9 @@ footer {
     display: flex;
     position: fixed;
     width: 100%;
-    height: 15em;
+    height: 8vh;
     bottom: 0;
+    z-index: 900;
 }
 
 .footer-button {
@@ -11,13 +12,19 @@ footer {
     border-left: 1px white;
 }
 
+.material-icons.footer-button {
+    color: #838383;
+    font-size: 4vh;
+    transition: color 0.3s;
+}
+
+.material-icons.footer-button:hover {
+    color: #8E24AA;
+}
+
 .footer-input-field {
     font-size: 4em;
     border-right: 1px white;
     padding-left: 1em;
     width: 100%;
-}
-
-.material-icons.footer-button {
-    font-size: 6em;
 }

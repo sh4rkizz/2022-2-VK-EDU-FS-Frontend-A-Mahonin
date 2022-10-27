@@ -1,19 +1,36 @@
 html {
     box-sizing: border-box;
+    height: 100%;
 }
 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
+    font-size: inherit;
 }
 
 body {
     margin: 0;
     background-color: #fff;
     color: #333;
-    font-size: 15px;
+    font-size: 0.8vh;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 20px;
+}
+
+@media screen and (max-width: 1500px) {
+    body {
+        font-size: 0.7vh;
+    }
+    header {
+        font-size: 0.7vh;
+    }
+}
+
+@media screen and (max-width: 811px) {
+    body {
+        font-size: 0.6vh;
+    }
 }

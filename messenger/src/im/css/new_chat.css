@@ -4,9 +4,10 @@
     right: 5em;
     height: 15em;
     width: 15em;
-    background-color: yellow;
+    background-color: #FFD54F;
     border: 0;
     border-radius: 100%;
+    transition: scale 1s;
 }
 
 .material-icons.new-chat-label {
@@ -14,7 +15,11 @@
 }
 
 .new-chat-button:active {
-    background-color: goldenrod;
+    background-color: yellow;
     box-shadow: 0 0 2px darkslategray;
     transform: translateY(2px);
+}
+
+.new-chat-button:hover {
+    scale: 120%;
 }
