@@ -1,9 +1,10 @@
 .chat {
     display: flex;
-    margin-top: 17em;
-    padding-bottom: 17em;
+    margin-top: 11vh;
+    padding-bottom: 9vh;
     flex-direction: column-reverse;
     scroll-behavior: smooth;
+    overflow-y: auto;
     gap: 3em;
 }
 
@@ -14,9 +15,12 @@
     overflow-wrap: anywhere;
     border-radius: 3em;
     padding: 2em;
-    background-color: lightgreen;
-    outline: 1px gray;
+    background-color: #F3E5F5;
+    border: 1px solid gray;
     gap: 1em;
+    z-index: 800;
+    animation-duration: 1s;
+    animation-name: fadeIn;
 }
 
 .message-companion {
@@ -37,7 +41,7 @@
     align-self: flex-end;
     line-height: 1em;
     font-size: 3.5em;
-    color: black;
+    color: #1e1e1e;
 }
 
 .message-meta {
@@ -56,9 +60,20 @@
 
 .message-status {
     align-self: center;
-    color: purple;
+    color: #9F47B7;
 }
 
 .material-icons.message-status {
     font-size: 3em;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
 }

@@ -6,7 +6,7 @@ import './css/new_chat.css'
 const im = document.querySelector('.im')
 const username = 'sharkizz'
 
-if (!localStorage.length || localStorage.length === 1) mockLocalStorage()
+if (!localStorage.username) mockLocalStorage()
 
 renderChatList()
 
@@ -82,7 +82,7 @@ function buildChat(companion, lastMessage, messageCounter, time, isTagged, statu
         if (isTagged) {
             messStatus.className += ' tagged'
             count.className += ' tagged'
-            count.innerText = '@'.concat(messageCounter)
+            count.innerText = '@ '.concat(messageCounter)
         }
 
         messStatus.append(count)
@@ -105,15 +105,17 @@ function buildChat(companion, lastMessage, messageCounter, time, isTagged, statu
 }
 
 function getDate(mils) {
-    let today = new Date().toDateString()
-    let dateMils = new Date(mils)
+    if (!mils) return
 
-    const [h, m] = [dateMils.getHours(), dateMils.getMinutes()]
+    let [date, time] = new Date(mils).toLocaleString().split(', ')
+    const [h, m] = time.split(':')
 
-    if (dateMils.toDateString() === today)
+    const [day, month] = date.split('.')
+
+    if (date === new Date().toLocaleDateString())
         return `${h}:${m}`
 
-    return `${dateMils.getDate()}.${dateMils.getMonth() + 1} ${h}:${m}`
+    return `${day}.${month} ${h}:${m}`
 }
 
 function isTaggedInChat(chat) {

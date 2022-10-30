@@ -3,11 +3,11 @@ import './css/header.css'
 import './css/chat.css'
 import './css/footer.css'
 
-const form = document.querySelector('form')
+const page = document.querySelector('html')
 const chat = document.querySelector('.chat')
 
-form.addEventListener('keypress', handleKeyPress.bind())
-form.addEventListener('submit', handleSubmit.bind())
+page.addEventListener('keyup', handleKeyPress.bind())
+page.addEventListener('submit', handleSubmit.bind())
 
 let id = new URLSearchParams(window.location.search).get('id')
 
@@ -114,12 +114,12 @@ function renderDate(mils) {
     let [date, time] = new Date(mils).toLocaleString().split(', ')
     const [h, m] = time.split(':')
 
-    time = `${h}:${m}`
+    const [day, month] = date.split('.')
 
     if (date === new Date().toLocaleDateString())
-        return time
+        return `${h}:${m}`
 
-    return `${date} ${time}`
+    return `${day}.${month} ${h}:${m}`
 }
 
 function mockResponse() {
@@ -174,7 +174,11 @@ function handleSubmit(event) {
 }
 
 function handleKeyPress(event) {
-    if (event.keyCode === 13) {
-        form.dispatchEvent(new Event('submit'))
+    switch (event.key) {
+        case 'Enter':
+            page.dispatchEvent(new Event('submit'))
+            break
+        case 'Escape':
+            goBack()
     }
 }
