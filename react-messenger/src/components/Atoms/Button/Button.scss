@@ -1,0 +1,68 @@
+@import 'src/components/Index';
+@import './ButtonTransitions';
+
+$button-size: 4vh;
+
+%button-props {
+  height: 100%;
+  align-items: center;
+  padding: 1vh;
+  justify-content: center;
+  font-size: $button-size;
+  background-color: $no-background;
+  font-family: material icons, serif;
+}
+
+%header-button {
+  @extend %button-props;
+
+  transition: all 1s ease;
+  display: flex;
+  color: white;
+  border: 0;
+}
+
+%footer-button {
+  @extend %button-props;
+
+  color: gray;
+  border: 0;
+}
+
+.search, .more, .apply, .back, .menu {
+  // TODO Group as a header-button
+  @extend %header-button;
+}
+
+.search, .apply {
+  // TODO Need to think how to change
+  margin-left: auto;
+}
+
+.submit-button {
+  // Send message button (in progress)
+  @extend %footer-button;
+}
+
+// TODO check color transition
+.attach-button {
+  @extend %footer-button;
+
+  margin-left: auto;
+  transition: color 0.3s ease;
+}
+
+.new-chat-button {
+  @extend %button-props;
+
+  background-color: $tag-color;
+  border-radius: 50%;
+  position: fixed;
+  height: 10vh;
+  width: 10vh;
+  bottom: 5vh;
+  right: 5vw;
+  border: 0;
+
+  transition: scale 1s;
+}
