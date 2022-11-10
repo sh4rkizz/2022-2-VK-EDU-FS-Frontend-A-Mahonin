@@ -1,0 +1,8 @@
+$tag-font: 2vh;
+$tag-color: gray;
+
+.profile-tag {
+  color: $tag-color;
+  font-size: $tag-font;
+  line-height: 1.5em;
+}
