@@ -3,7 +3,7 @@ export default function setChat(chatId, message) {
 
     let chats = JSON.parse(localStorage.getItem('chats'))
 
-    chats.map(chat => {
+    chats.forEach(chat => {
         if (chat.id === chatId) chat.messages.push(message)
     })
 

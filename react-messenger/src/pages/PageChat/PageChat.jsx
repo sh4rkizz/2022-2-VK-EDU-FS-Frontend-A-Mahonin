@@ -11,10 +11,10 @@ import setChat from '../../utils/setChat'
 
 
 export default function PageChat() {
-    const [params, _] = useSearchParams()
+    const [params,] = useSearchParams()
 
     const chat = getChat(params.get('id'))
-    const [__, setChatState] = useState(chat)
+    const [, setChatState] = useState(chat)
 
     if (!chat) return <PageNotFound/>
 
