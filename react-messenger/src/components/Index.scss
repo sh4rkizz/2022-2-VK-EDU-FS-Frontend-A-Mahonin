@@ -1,0 +1,31 @@
+$font-stack: Helvetica, Arial, sans-serif;
+$main-color: #8E24AA; // dark: #741B47
+$message-color: #F3E5F5;
+$no-background: #3330;
+$title-font-size: 4vh;
+$tag-color: #FFD54F;
+$meta-color: #a0a0a0;
+
+%font-props {
+  font-size: 2vh;
+  line-height: 1em;
+}
+
+%row-oriented {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+%column-oriented {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+%line-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

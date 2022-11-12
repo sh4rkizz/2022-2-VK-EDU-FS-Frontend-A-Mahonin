@@ -1,0 +1,8 @@
+@import 'src/components/Index';
+
+
+.companion-meta {
+  @extend %font-props;
+
+  color: $meta-color;
+}
