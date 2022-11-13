@@ -33,7 +33,7 @@ function ChatCompanion(chat) {
 export default function chatHeader(props) {
     return (
         <header>
-            {button({buttonClass: 'back', buttonName: 'arrow_back',onClick: props.goBack})}
+            {button({buttonClass: 'back', buttonName: 'arrow_back', hrefMigrate: '/'})}
             {ChatCompanion(props.chat)}
             {button({buttonClass: 'search', buttonName: 'search'})}
             {button({buttonClass: 'more', buttonName: 'more_vert'})}

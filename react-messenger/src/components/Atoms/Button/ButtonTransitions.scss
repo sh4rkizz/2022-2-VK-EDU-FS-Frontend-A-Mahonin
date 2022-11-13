@@ -11,6 +11,7 @@
   transform: $property;
 }
 
+// TODO change rotateZ for back:hover
 .back:hover, .apply:hover, .menu:hover {
   scale: 120%;
   color: #00D9E7;

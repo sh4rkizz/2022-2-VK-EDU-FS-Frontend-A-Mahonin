@@ -1,5 +1,7 @@
 import './Content.scss'
 
+import {Link} from 'react-router-dom'
+
 import avatar from '../../Atoms/Avatar/Avatar'
 import meta from '../../Atoms/Meta/Meta'
 import companionName from '../../Atoms/CompanionName/CompanionName'
@@ -30,20 +32,20 @@ function chatData(props) {
     )
 }
 
-function content(props) {
+function content() {
     let chatList = sortChats(getAllChats())
-
-    const handleClick = (p, id) => p.openChat(id)
 
     return chatList.map(chat => {
         return (
-            <div className='chat' key={chat.id} onClick={() => handleClick(props, chat.id)}>
-                {chatData({chat: chat})}
-            </div>
+            <Link to={`/chat?id=${chat.id}`} style={{textDecoration: 'none'}}>
+                <div className='chat' id={chat.id}>
+                    {chatData({chat: chat})}
+                </div>
+            </Link>
         )
     })
 }
 
-export default function chatListContent(props) {
-    return <div className='content-chat-list'>{content(props)}</div>
+export default function chatListContent() {
+    return <div className='content-chat-list'>{content()}</div>
 }

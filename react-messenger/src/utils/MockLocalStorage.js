@@ -250,7 +250,7 @@ export default function mockLocalStorage() {
                     "user": "companion",
                     "message": "“Why was the broom late for the meeting? It overswept.”",
                     "attachment": null,
-                    "date": 1666517287816,
+                    "date": 1666517200000,
                     "status": "Sent"
                 }
             ]
@@ -263,7 +263,7 @@ export default function mockLocalStorage() {
                     "user": "companion",
                     "message": "“Why was the broom late for the meeting? It overswept.”",
                     "attachment": null,
-                    "date": 1666517287816,
+                    "date": 1666511200000,
                     "status": "Sent"
                 }
             ]
@@ -276,7 +276,7 @@ export default function mockLocalStorage() {
                     "user": "companion",
                     "message": "“Why was the broom late for the meeting? It overswept.”",
                     "attachment": null,
-                    "date": 1666517287816,
+                    "date": 1666517100000,
                     "status": "Sent"
                 }
             ]

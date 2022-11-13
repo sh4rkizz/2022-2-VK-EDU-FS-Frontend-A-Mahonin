@@ -5,12 +5,12 @@ import profileContent from '../../components/Molecules/Content/ProfileContent'
 import getUserSettings from "../../utils/GetUserSettings";
 
 
-export default function PageProfile(props) {
+export default function PageProfile() {
     const [values, setValues] = useState(getUserSettings())
 
     return (
         <>
-            {profileHeader({values: values, goBack: props.goBack})}
+            {profileHeader({values: values})}
             {profileContent({values: values, setValues: setValues})}
         </>
     )

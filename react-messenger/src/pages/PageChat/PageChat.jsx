@@ -1,3 +1,4 @@
+import {useSearchParams} from 'react-router-dom'
 import {useState} from 'react'
 
 import chatHeader from '../../components/Molecules/Header/ChatHeader.jsx'
@@ -9,15 +10,17 @@ import getChat from '../../utils/GetChat'
 import setChat from '../../utils/setChat'
 
 
-export default function PageChat(props) {
-    const chat = getChat(String(props.chatId))
+export default function PageChat() {
+    const [params,] = useSearchParams()
+
+    const chat = getChat(params.get('id'))
     const [, setChatState] = useState(chat)
 
     if (!chat) return <PageNotFound/>
 
     return (
         <>
-            {chatHeader({chat: chat, goBack: props.goBack})}
+            {chatHeader({chat: chat})}
             {chatContent({chat: chat})}
             {chatFooter({chat: chat, updateData: setChat, hook: setChatState})}
         </>

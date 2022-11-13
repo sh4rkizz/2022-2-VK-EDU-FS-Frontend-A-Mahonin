@@ -5,18 +5,16 @@ import setUserSettings from '../../../utils/SetUserSettings'
 
 
 export default function profileHeader(props) {
-    const handleClickSave = () => {
+    const handleClick = () => {
         setUserSettings(props.values)
         alert('Profile settings have been saved')
     }
 
-    const handleClickGoBack = p => p.goBack()
-
     return (
         <header>
-            {button({buttonClass: 'back', buttonName: 'arrow_back', onClick: () => handleClickGoBack(props)})}
+            {button({buttonClass: 'back', buttonName: 'arrow_back', hrefMigrate: '/'})}
             {title({pageTitle: 'Edit Profile'})}
-            {button({buttonClass: 'apply', buttonName: 'done', onClick: handleClickSave})}
+            {button({buttonClass: 'apply', buttonName: 'done', onClick: handleClick})}
         </header>
     )
 }

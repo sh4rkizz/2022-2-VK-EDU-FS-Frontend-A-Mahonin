@@ -1,19 +1,11 @@
 import './Content.scss'
 import message from '../../Atoms/Message/Message'
 
-import {Fragment} from 'react'
-
 
 function RenderAllMessages(messages) {
     let id = 0
 
-    return (
-        <Fragment>
-            {messages.map(storedMessage =>
-                <Fragment key={id}>{message({message: storedMessage, id: ++id})}</Fragment>
-            )}
-        </Fragment>
-    )
+    return <>{messages.map(storedMessage => <>{message({message: storedMessage, id: ++id})}</>)}</>
 }
 
 export default function chatContent(props) {
