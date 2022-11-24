@@ -1,20 +1,20 @@
 import './Header.scss'
-import button from '../../Atoms/Button/Button'
-import title from '../../Atoms/Title/Title'
+
+import {Button, Text} from '../../Atoms'
 import setUserSettings from '../../../utils/SetUserSettings'
 
 
-export default function profileHeader(props) {
+export function ProfileHeader({values}) {
     const handleClick = () => {
-        setUserSettings(props.values)
+        setUserSettings(values)
         alert('Profile settings have been saved')
     }
 
     return (
         <header>
-            {button({buttonClass: 'back', buttonName: 'arrow_back', hrefMigrate: '/'})}
-            {title({pageTitle: 'Edit Profile'})}
-            {button({buttonClass: 'apply', buttonName: 'done', onClick: handleClick})}
+            {Button({className: 'back', name: 'arrow_back', hrefTo: '/'})}
+            {Text({className: 'page-title', content: 'Edit Profile'})}
+            {Button({className: 'apply', name: 'done', onClick: handleClick})}
         </header>
     )
 }

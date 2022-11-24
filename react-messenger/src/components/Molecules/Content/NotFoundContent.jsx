@@ -1,6 +1,6 @@
 import './Content.scss'
 
 
-export default function pageNotFound() {
+export function NotFoundContent() {
     return <span className='page-not-found-title'>404</span>
 }

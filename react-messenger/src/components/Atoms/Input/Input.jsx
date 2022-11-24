@@ -1,14 +1,14 @@
 import './Input.scss'
 
 
-export default function input(props) {
+export function Input({className, value, name, onChange, onKeyDown, placeholder}) {
     return (
-        <input className={props.className}
-               defaultValue={props.value}
-               name={props.name}
-               onChange={props.handler}
-               onKeyDown={props.onKeyDown}
-               placeholder={props.placeHolder}>
+        <input className={className}
+               defaultValue={value}
+               name={name}
+               onChange={onChange}
+               onKeyDown={onKeyDown}
+               placeholder={placeholder}>
         </input>
     )
 

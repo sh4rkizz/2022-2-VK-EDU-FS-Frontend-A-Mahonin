@@ -1,15 +1,42 @@
-import React from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 
-import chatListHeader from '../../components/Molecules/Header/ChatListHeader'
-import chatListContent from '../../components/Molecules/Content/ChatListContent'
-import button from '../../components/Atoms/Button/Button'
+import {ChatListContent, ChatListHeader} from '../../components/Molecules'
+import {Button} from '../../components/Atoms'
 
-export default function PageChatList() {
+export function PageChatList() {
+    const apiChatListUrl = '/api/chats'
+
+    const [chats, setChats] = useState([])
+    const [error, setError] = useState(null)
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    const pollChats = () => {
+        fetch(`${apiChatListUrl}/`)
+            .then(resp => resp.json())
+            .then(resp => {
+                    setIsLoaded(true)
+                    setChats(resp.chats.reverse())
+                }, err => {
+                    setIsLoaded(true)
+                    setError(err)
+                }
+            )
+    }
+
+    useEffect(() => {
+        const interval = setInterval(pollChats, 2000)
+        return () => clearInterval(interval)
+    }, [])
+
+
+    if (error) return <div>Error: {error.message}</div>
+    else if (!isLoaded) return <div>Loading</div>
+
     return (
-        <>
-            {chatListHeader()}
-            {chatListContent()}
-            {button({buttonClass: 'new-chat-button', buttonName: 'edit_square'})}
-        </>
+        <Fragment>
+            {ChatListHeader()}
+            {ChatListContent({chats: chats})}
+            {Button({className: 'new-chat-button', name: 'edit_square'})}
+        </Fragment>
     )
 }

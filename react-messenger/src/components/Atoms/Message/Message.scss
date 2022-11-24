@@ -15,13 +15,6 @@
 
   animation-duration: 1s;
   animation-name: fadeIn;
-
-  .message-text {
-    @extend %font-props;
-
-    align-self: flex-end;
-    color: black;
-  }
 }
 
 .user-message {

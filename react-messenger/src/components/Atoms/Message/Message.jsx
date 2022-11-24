@@ -1,12 +1,16 @@
 import './Message.scss'
-import meta from "../Meta/Meta"
 
+import {Meta} from '../Meta'
+import {Text} from '../Text'
 
-export default function message(props) {
+export function Message({message}) {
     return (
-        <div className={props.message.user === 'self' ? 'user-message' : 'companion-message'} id={props.id}>
-            <span className='message-text'>{props.message.message}</span>
-            {meta({className: 'message-meta', date: props.message.date, status: props.message.status})}
+        <div className={message.author === 1 ? 'user-message' : 'companion-message'} key={message.id}>
+            {Text({className: 'message-text', content: message.content})}
+            {Meta({
+                className: 'message-meta', date: message.creation_time,
+                status: message.status, is_read: message.is_read
+            })}
         </div>
     )
 }

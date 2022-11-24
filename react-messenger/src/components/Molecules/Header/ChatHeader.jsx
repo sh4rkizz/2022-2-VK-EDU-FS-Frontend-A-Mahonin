@@ -1,42 +1,38 @@
 import './Header.scss'
 
-import companionLastOnline from '../../Atoms/CompanionLastOnline/CompanionLastOnline'
-import companionName from '../../Atoms/CompanionName/CompanionName'
-import avatar from '../../Atoms/Avatar/Avatar'
-import button from '../../Atoms/Button/Button'
+import {Avatar, Button, Text} from '../../Atoms'
 import mockLocalStorage from '../../../utils/MockLocalStorage'
-
 
 mockLocalStorage()
 
 let mockOnline = 'Was online some time ago'
 
 
-function companionMeta(props) {
+function CompanionInfo({name, meta}) {
     return (
         <span className='companion-info'>
-            {companionName({name: props.name})}
-            {companionLastOnline({metaData: props.metaData})}
+            {Text({className: 'companion-name', content: name})}
+            {Text({className: 'companion-meta', content: meta})}
         </span>
     )
 }
 
-function ChatCompanion(chat) {
+function ChatCompanion({title}) {
     return (
         <span className='companion'>
-            {avatar({className: 'chat-avatar'})}
-            {companionMeta({name: chat.companion, metaData: mockOnline})}
+            {Avatar({className: 'chat-avatar'})}
+            {CompanionInfo({name: title, meta: mockOnline})}
         </span>
     )
 }
 
-export default function chatHeader(props) {
+export function ChatHeader({title}) {
     return (
         <header>
-            {button({buttonClass: 'back', buttonName: 'arrow_back', hrefMigrate: '/'})}
-            {ChatCompanion(props.chat)}
-            {button({buttonClass: 'search', buttonName: 'search'})}
-            {button({buttonClass: 'more', buttonName: 'more_vert'})}
+            {Button({className: 'back', hrefTo: '/', name: 'arrow_back'})}
+            {ChatCompanion({title: title})}
+            {Button({className: 'search', name: 'search'})}
+            {Button({className: 'more', name: 'more_vert'})}
         </header>
     )
 }

@@ -1,13 +1,14 @@
-import {Link} from 'react-router-dom'
 import './Button.scss'
 
+import {Link} from 'react-router-dom'
 
-export default function button(props) {
-    if (props.hrefMigrate) return (
-        <Link to={props.hrefMigrate} style={{textDecoration: 'none'}}>
-            <button className={props.buttonClass}>{props.buttonName}</button>
+
+export function Button({hrefTo, className, name, onClick}) {
+    if (hrefTo) return (
+        <Link to={hrefTo} style={{textDecoration: 'none'}}>
+            <button className={className}>{name}</button>
         </Link>
     )
 
-    return <button className={props.buttonClass} onClick={props.onClick}>{props.buttonName}</button>
+    return <button className={className} onClick={onClick}>{name}</button>
 }

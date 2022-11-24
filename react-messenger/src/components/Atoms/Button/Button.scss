@@ -13,7 +13,7 @@ $button-size: 4vh;
   font-family: material icons, serif;
 }
 
-%header-button {
+%header-button-props {
   @extend %button-props;
 
   transition: all 1s ease;
@@ -22,7 +22,7 @@ $button-size: 4vh;
   border: 0;
 }
 
-%footer-button {
+%footer-button-props {
   @extend %button-props;
 
   color: gray;
@@ -31,7 +31,7 @@ $button-size: 4vh;
 
 .search, .more, .apply, .back, .menu {
   // TODO Group as a header-button
-  @extend %header-button;
+  @extend %header-button-props;
 }
 
 .search, .apply {
@@ -41,12 +41,11 @@ $button-size: 4vh;
 
 .submit-button {
   // Send message button (in progress)
-  @extend %footer-button;
+  @extend %footer-button-props;
 }
 
-// TODO check color transition
 .attach-button {
-  @extend %footer-button;
+  @extend %footer-button-props;
 
   margin-left: auto;
   transition: color 0.3s ease;

@@ -1,5 +1,4 @@
 @import 'src/components/Index';
-@import 'src/components/Atoms/CompanionName/CompanionName';
 
 
 %content {
@@ -59,12 +58,12 @@
   margin-top: 15vh;
   gap: 5vh;
 
-  .content-particle {
+  .particle {
     @extend %column-oriented;
 
     width: 85%;
 
-    .content-atom {
+    .element {
       @extend %column-oriented;
 
       padding-left: 1vw;

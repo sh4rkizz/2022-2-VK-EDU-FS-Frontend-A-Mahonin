@@ -1,12 +1,13 @@
-import title from '../../Atoms/Title/Title'
-import button from '../../Atoms/Button/Button'
+import './Header.scss'
 
-export default function chatListHeader() {
+import {Button, Text} from '../../Atoms'
+
+export function ChatListHeader() {
     return (
         <header>
-            {button({buttonClass: 'menu', buttonName: 'menu', hrefMigrate: '/profile'})}
-            {title({pageTitle: 'Messenger'})}
-            {button({buttonClass: 'search', buttonName: 'search'})}
+            {Button({className: 'menu', name: 'menu', hrefTo: '/profile'})}
+            {Text({className: 'page-title', content: 'Messenger'})}
+            {Button({className: 'search', name: 'search'})}
         </header>
     )
 }
