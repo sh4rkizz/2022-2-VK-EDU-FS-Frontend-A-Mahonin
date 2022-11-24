@@ -1,15 +1,25 @@
 {
   "files": {
-    "main.css": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.a65d0840.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.f8774d89.js",
+    "main.css": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.aa784f17.css",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.dca046ab.js",
     "static/js/787.4418018c.chunk.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/787.4418018c.chunk.js",
+    "static/media/material-icons-two-tone.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
+    "static/media/material-icons-two-tone.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
+    "static/media/material-icons-round.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-round.5d681e2edae8c60630db.woff",
+    "static/media/material-icons-outlined.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-outlined.f882956fd323fd322f31.woff",
+    "static/media/material-icons-round.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-round.c380809fd3677d7d6903.woff2",
+    "static/media/material-icons.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons.4d73cb90e394b34b7670.woff",
+    "static/media/material-icons-sharp.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-sharp.3a4004a46a653d4b2166.woff",
+    "static/media/material-icons-outlined.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-outlined.6f420cf17cc0d7676fad.woff2",
+    "static/media/material-icons-sharp.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-sharp.219aa9140e099e6c72ed.woff2",
+    "static/media/material-icons.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons.0c35d18bf06992036b69.woff2",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/index.html",
-    "main.a65d0840.css.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.a65d0840.css.map",
-    "main.f8774d89.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.f8774d89.js.map",
+    "main.aa784f17.css.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.aa784f17.css.map",
+    "main.dca046ab.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.dca046ab.js.map",
     "787.4418018c.chunk.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/787.4418018c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a65d0840.css",
-    "static/js/main.f8774d89.js"
+    "static/css/main.aa784f17.css",
+    "static/js/main.dca046ab.js"
   ]
 }
