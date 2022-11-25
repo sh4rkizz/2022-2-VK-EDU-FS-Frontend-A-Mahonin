@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.aa784f17.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.dca046ab.js",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.12d12bc9.js",
     "static/js/787.4418018c.chunk.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/787.4418018c.chunk.js",
     "static/media/material-icons-two-tone.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
     "static/media/material-icons-two-tone.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
@@ -15,11 +15,11 @@
     "static/media/material-icons.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons.0c35d18bf06992036b69.woff2",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/index.html",
     "main.aa784f17.css.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.aa784f17.css.map",
-    "main.dca046ab.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.dca046ab.js.map",
+    "main.12d12bc9.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.12d12bc9.js.map",
     "787.4418018c.chunk.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/787.4418018c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aa784f17.css",
-    "static/js/main.dca046ab.js"
+    "static/js/main.12d12bc9.js"
   ]
 }
