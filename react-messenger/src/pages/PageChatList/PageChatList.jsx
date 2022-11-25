@@ -33,7 +33,7 @@ export function PageChatList() {
     useEffect(() => {
         const interval = setInterval(pollChats, 1000)
         return () => clearInterval(interval)
-    }, [])
+    })
 
     if (error) return <div>Error: {error.message}</div>
     else if (!isLoaded) return <div>Loading</div>
