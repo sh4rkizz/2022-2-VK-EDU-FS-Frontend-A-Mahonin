@@ -3,16 +3,18 @@ import './Footer.scss'
 import {Button, Input} from '../../Atoms'
 
 
-export function ChatFooter({send, chatId, author}) {
+export function ChatFooter({send, sendToVk, chatId, author}) {
     const buildMessage = (content) => {
-        console.log( {
-            'chat': chatId,
-            'content': content,
-            'author': author
-        })
         return {
             'chat': chatId,
             'content': content,
+            'author': author
+        }
+    }
+
+    const buildVkMessage = (content) => {
+        return {
+            'text': content,
             'author': author
         }
     }
@@ -24,7 +26,8 @@ export function ChatFooter({send, chatId, author}) {
         if (!message) return
 
         event.target.value = ''
-        send(buildMessage(message))
+        console.log(chatId)
+        chatId === '0' ? sendToVk(buildVkMessage(message)) : send(buildMessage(message))
     }
 
     return (
