@@ -1,9 +1,0 @@
-@import 'src/components/Index';
-
-.status {
-  @extend %font-props;
-
-  font-family: material icons, serif;
-  align-self: center;
-  color: $main-color;
-}

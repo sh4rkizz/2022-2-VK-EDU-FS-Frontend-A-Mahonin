@@ -1,72 +1,55 @@
 import './Content.scss'
 
-import input from '../../Atoms/Input/Input'
-import avatar from '../../Atoms/Avatar/Avatar'
-import helpTag from '../../Atoms/HelpTag/HelpTag'
+import {Avatar, Input, Text} from '../../Atoms'
 
 
-function particle(props) {
+function Particle({fTagContent, sTagContent, inputName, inputHandler, inputPlaceholder, inputValue, display}) {
     return (
-        <span className='content-particle'>
-            <span className='content-atom'>
-                {helpTag({className: 'profile-tag', tagContent: props.tagContent})}
-                {input({
-                    className: 'profile-input',
-                    name: props.name,
-                    handler: props.handler,
-                    placeHolder: props.inputPlaceholder,
-                    value: props.value
+        <span className='particle'>
+            <span className='element'>
+                {Text({className: 'profile-tag', content: fTagContent})}
+                {Input({
+                    className: 'profile-input', value: inputValue, name: inputName,
+                    handler: inputHandler, placeholder: inputPlaceholder
                 })}
             </span>
-            {helpTag({
-                className: 'profile-tag',
-                tagContent: props.secondTagContent,
-                displaySecondTag: props.displaySecondTag
+            {Text({
+                className: 'profile-tag', content: sTagContent,
+                display: display ? display : 'contents'
             })}
         </span>
     )
 }
 
-export default function profileContent(props) {
+export function ProfileContent({setValues, values}) {
     const handleInputChange = (e) => {
         const {name, value} = e.target
 
-        props.setValues({
-            ...props.values,
-            [name]: value
-        })
+            setValues({
+                ...values,
+                [name]: value
+            })
     }
 
     return (
         <div className='content-profile'>
-            {avatar({className: 'profile-avatar'})}
+            {Avatar({className: 'profile-avatar'})}
 
-            {particle({
-                tagContent: 'Full name',
-                name: 'fullName',
-                inputPlaceholder: 'Enter your name',
-                value: props.values.fullName,
-                handler: handleInputChange,
-                secondTagContent: 'Unavailable name',
-                displaySecondTag: 'none',
+            {Particle({
+                fTagContent: 'Full name', inputName: 'fullName', inputPlaceholder: 'Enter your name',
+                inputValue: values.fullName, inputHandler: handleInputChange,
+                sTagContent: 'Unavailable name', display: 'none'
             })}
 
-            {particle({
-                tagContent: 'Username',
-                name: 'username',
-                inputPlaceholder: 'Enter your username',
-                value: props.values.username,
-                handler: handleInputChange,
-                secondTagContent: 'Minimum length is 5 characters',
+            {Particle({
+                fTagContent: 'Username', inputName: 'username', inputPlaceholder: 'Enter your username',
+                inputValue: values.username, inputHandler: handleInputChange,
+                sTagContent: 'Minimum length is 5 characters',
             })}
 
-            {particle({
-                tagContent: 'Bio',
-                name: 'bio',
-                inputPlaceholder: 'Describe yourself',
-                value: props.values.bio,
-                handler: handleInputChange,
-                secondTagContent: 'Any details about you',
+            {Particle({
+                fTagContent: 'Bio', inputName: 'bio', inputPlaceholder: 'Describe yourself',
+                inputValue: values.bio, inputHandler: handleInputChange, sTagContent: 'Any details about you',
             })}
         </div>
     )

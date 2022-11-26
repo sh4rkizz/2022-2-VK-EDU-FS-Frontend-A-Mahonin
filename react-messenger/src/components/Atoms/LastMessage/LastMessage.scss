@@ -1,9 +1,0 @@
-@import 'src/components/Index';
-
-.chat-last-message {
-  @extend %font-props;
-  @extend %line-wrap;
-
-  color: $meta-color;
-  padding-right: 2vw;
-}

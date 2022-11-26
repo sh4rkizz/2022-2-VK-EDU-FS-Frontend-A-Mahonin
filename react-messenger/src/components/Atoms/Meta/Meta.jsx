@@ -1,13 +1,30 @@
 import './Meta.scss'
-import date from '../Date/Date'
-import status from '../Status/Status'
+
+import {Text} from '../Text'
 
 
-export default function meta(props) {
+function handleDate(mDate) {
+    if (!mDate) return
+
+    const [cday,] = new Date().toLocaleString().split(', '),
+        [day, time] = new Date(mDate).toLocaleString().split(', ')
+
+    if (cday === day) {
+        const [h, m] = time.split(':')
+        return `${h}:${m}`
+    }
+
+    const [h, min] = time.split(':'),
+        [d, mon,] = day.split('.')
+
+    return `${d}.${mon} ${h}:${min}`
+}
+
+export function Meta({className, date, status, is_read}) {
     return (
-        <div className={props.className}>
-            {date({date: props.date})}
-            {status({status: props.status})}
+        <div className={className}>
+            {Text({className: 'chat-list-date', content: handleDate(date)})}
+            {Text({className: 'status', status: status, is_read: is_read})}
         </div>
     )
 }

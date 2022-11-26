@@ -2,50 +2,69 @@ import './Content.scss'
 
 import {Link} from 'react-router-dom'
 
-import avatar from '../../Atoms/Avatar/Avatar'
-import meta from '../../Atoms/Meta/Meta'
-import companionName from '../../Atoms/CompanionName/CompanionName'
-import lastMessage from '../../Atoms/LastMessage/LastMessage'
-
-import sortChats from '../../../utils/SortChatsByDate'
-import getAllChats from '../../../utils/GetAllChats'
+import {Avatar, Meta, Text} from '../../Atoms'
 
 
-function chatInfo(props) {
+function ChatInfo({title, text}) {
     return (
         <div className='chat-info'>
-            {companionName({name: props.companion, color: 'black'})}
-            {lastMessage({message: props.lastMessage.message})}
+            {Text({className: 'chat-title', content: title})}
+            {Text({className: 'last-message', content: text})}
         </div>
     )
 }
 
-function chatData(props) {
-    let lastMessage = props.chat.messages[props.chat.messages.length - 1]
+function ChatData({chat}) {
+    const lastMessage = chat['last_message']
+
+    if (!lastMessage) return
+
+    const title = chat['title'] ? chat['title'] : chat['users'][1]['username']
+    const lastMessageDate = chat.id === 0 ? lastMessage['timestamp'] : lastMessage['creation_time']
+
+    const lastMessageStatus = lastMessage['status']
+    const lastMessageIsRead = lastMessage['is_read']
 
     return (
         <div className='chat-data'>
-            {avatar({className: 'chat-list-avatar'})}
-            {chatInfo({companion: props.chat.companion, lastMessage: lastMessage})}
-            {meta({className: 'chat-meta', date: lastMessage.date, status: lastMessage.status})}
+            {Avatar({className: 'chat-list-avatar'})}
+            {ChatInfo({title: title, text: chat.id === 0 ? lastMessage.text : lastMessage.content})}
+            {Meta({
+                className: 'chat-meta', date:lastMessageDate,
+                status: lastMessageStatus, is_read: lastMessageIsRead
+            })}
         </div>
     )
 }
 
-function content() {
-    let chatList = sortChats(getAllChats())
-
-    return chatList.map(chat => {
-        return (
-            <Link to={`/chat?id=${chat.id}`} style={{textDecoration: 'none'}}>
-                <div className='chat' id={chat.id}>
-                    {chatData({chat: chat})}
-                </div>
-            </Link>
-        )
-    })
+function VkChat({vkChat}) {
+    return (
+        <Link to='/chat?id=0' style={{textDecoration: 'none'}}>
+            <div className='chat' id='0'>
+                {ChatData({chat: vkChat})}
+            </div>
+        </Link>
+    )
 }
 
-export default function chatListContent() {
-    return <div className='content-chat-list'>{content()}</div>
+function Content({chats}) {
+    return chats.map(chat => {
+            if (!chat['last_message']) return null
+
+            return (
+                <Link to={`/chat?id=${chat.id}`} style={{textDecoration: 'none'}}>
+                    <div className='chat' id={chat.id}>
+                        {ChatData({chat: chat})}
+                    </div>
+                </Link>
+            )
+        }
+    )
+}
+
+export function ChatListContent({vkChat, chats}) {
+    return <div className='content-chat-list'>
+        {VkChat({vkChat})}
+        {Content({chats})}
+    </div>
 }

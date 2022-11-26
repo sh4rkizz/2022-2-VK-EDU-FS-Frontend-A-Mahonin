@@ -1,17 +1,16 @@
-import {useState} from 'react'
+import {useState, Fragment} from 'react'
 
-import profileHeader from '../../components/Molecules/Header/ProfileHeader'
-import profileContent from '../../components/Molecules/Content/ProfileContent'
-import getUserSettings from "../../utils/GetUserSettings";
+import {ProfileContent, ProfileHeader} from '../../components/Molecules'
+import getUserSettings from '../../utils/GetUserSettings'
 
 
-export default function PageProfile() {
+export function PageProfile() {
     const [values, setValues] = useState(getUserSettings())
 
     return (
-        <>
-            {profileHeader({values: values})}
-            {profileContent({values: values, setValues: setValues})}
-        </>
+        <Fragment>
+            {ProfileHeader({values: values})}
+            {ProfileContent({values: values, setValues: setValues})}
+        </Fragment>
     )
 }

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
-import pageNotFound from '../../components/Molecules/Content/NotFoundCountent'
+import {NotFoundContent} from '../../components/Molecules'
 
 
-export default function PageNotFound() {
-    return <>{pageNotFound()}</>
+export function PageNotFound() {
+    return <Fragment>{NotFoundContent()}</Fragment>
 }
