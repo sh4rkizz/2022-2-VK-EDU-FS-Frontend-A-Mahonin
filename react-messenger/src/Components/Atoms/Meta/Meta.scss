@@ -1,0 +1,25 @@
+@import '../../Index';
+
+
+.companion-meta {
+  // Online time and device type here
+}
+
+.message-meta {
+  @extend %row-oriented;
+
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 1vw;
+}
+
+.chat-meta {
+  @extend %column-oriented;
+
+  flex-basis: 3vw;
+  align-items: center;
+  gap: 1vh;
+  margin-left: auto;
+  margin-right: 2vw;
+}
