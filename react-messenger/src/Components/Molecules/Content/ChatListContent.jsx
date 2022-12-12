@@ -3,10 +3,9 @@ import './Content.scss'
 import {Link} from 'react-router-dom'
 
 import {Image, Meta, Text} from '../../Atoms'
-import {pollChatLastMessage, pollChats, pollVkLastMessage} from '../../../utils'
+import {pollChats, pollVkLastMessage} from '../../../utils'
 import {useEffect, useState} from 'react'
 import {IMAGE_TEMPLATE} from '../../../utils/urls'
-import {useDispatch} from 'react-redux'
 
 const ChatInfo = ({title, text}) => {
     return (
@@ -17,61 +16,48 @@ const ChatInfo = ({title, text}) => {
     )
 }
 
-const ChatData = ({isVkChat, vkChatLastMessage, chatLastMessage}) => {
-    const chat = !isVkChat ? chatLastMessage : vkChatLastMessage
-    if (!chat) return
+
+const ChatData = ({chat}) => {
+    console.log(chat)
 
     return (
         <div className='chat-data'>
             <Image className='chat-list-avatar' src={IMAGE_TEMPLATE}/>
-            <ChatInfo title={chat.chat} text={chat.lastMessageAuthor + ': ' + chat.lastMessageText}/>
-            <Meta className='chat-meta' date={chat.lastMessageDate} is_read={chat.lastMessageIsRead}/>
+            <ChatInfo title={chat.chat} text={chat.lastMessage.author + ': ' + chat.lastMessage.text}/>
+            <Meta className='chat-meta' date={chat.lastMessage.date} is_read={chat.lastMessage.isRead}/>
         </div>
     )
 }
 
+
 const VkChat = () => {
     const [vkChatLastMessage, setVkChatLastMessage] = useState({})
-    const dispatch = useDispatch()
 
-    // TODO record to vkChatDispatch, also add active chat
     useEffect(() => {
         const vkChatHandler = async () => setVkChatLastMessage(await pollVkLastMessage())
         const interval = setInterval(vkChatHandler, 5000)
 
         return () => clearInterval(interval)
-    }, [])
+    })
+
+    if (Object.keys(vkChatLastMessage).length === 0) return
 
     return (
         <Link to='/chat?id=0' style={{textDecoration: 'none'}}>
             <div className='chat' id='0'>
-                <ChatData isVkChat={true} vkChatLastMessage={vkChatLastMessage}/>
+                <ChatData isVkChat={true} chat={vkChatLastMessage}/>
             </div>
         </Link>
     )
 }
 
-const Chat = ({chatId}) => {
-    const [chatLastMessage, setChatLastMessage] = useState({})
-    const dispatch = useDispatch()
-
-    // TODO record to chatDispatch, also add active chat
-    useEffect(() => {
-        const chatHandler = async () => {
-            const response = await pollChatLastMessage(chatId)
-            if (response) setChatLastMessage(response)
-        }
-        const interval = setInterval(chatHandler, 5000)
-
-        return () => clearInterval(interval)
-    })
-
-    if (!chatLastMessage.id) return
+const Chat = ({chat}) => {
+    if (Object.keys(chat).length === 0) return
 
     return (
-        <Link to={`/chat?id=${chatId}`} style={{textDecoration: 'none'}}>
-            <div className='chat' id={chatId}>
-                <ChatData isVkChat={false} chatLastMessage={chatLastMessage}/>
+        <Link to={`/chat?id=${chat.id}`} style={{textDecoration: 'none'}}>
+            <div className='chat' id={chat.id}>
+                <ChatData chat={chat}/>
             </div>
         </Link>
     )
@@ -82,12 +68,12 @@ const Chats = () => {
 
     useEffect(() => {
         const chatListHandler = async () => setChatList(await pollChats())
-        const interval = setInterval(chatListHandler, 10000)
+        const interval = setInterval(chatListHandler, 2000)
 
         return () => clearInterval(interval)
     })
 
-    return chatList.map(chat => <Chat chatId={chat.id}/>)
+    return chatList.map(chat => chat ? <Chat chat={chat}/> : '')
 }
 
 export const ChatListContent = () => {

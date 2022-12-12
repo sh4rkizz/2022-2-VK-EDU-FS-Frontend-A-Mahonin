@@ -15,24 +15,25 @@ export const buildGroupChatMessage = (text, image, audio, username) => {
     }
 }
 
-export const buildChat = response => {
+const buildLastMessage = ({id, chat, lastMessage}) => {
     return {
-        id: response.id,
-        chat: response.chat,
-        lastMessageAuthor: response.author,
-        lastMessageText: response.text,
-        lastMessageDate: response.creation_time,
-        lastMessageIsRead: response.is_read
+        id: id,
+        chat: chat,
+        lastMessage: {
+            author: lastMessage.author,
+            text: lastMessage.text,
+            audio: id === '0' ? null : lastMessage.audio,
+            image: id === '0' ? null : lastMessage.image,
+            date: id === '0' ? lastMessage.timestamp : lastMessage.creation_time,
+            isRead: id === '0' ? true : lastMessage.is_read
+        }
     }
 }
 
+export const buildChat = response => {
+    return buildLastMessage({id: response.id, chat: response.title, lastMessage: response.last_message})
+}
+
 export const buildVkChat = lastMessage => {
-    return {
-        id: 0,
-        chat: 'vk chat',
-        lastMessageAuthor: lastMessage.author,
-        lastMessageText: lastMessage.text,
-        lastMessageDate: lastMessage.timestamp,
-        lastMessageIsRead: true
-    }
+    return buildLastMessage({id: '0', chat: 'vk chat', lastMessage: lastMessage})
 }

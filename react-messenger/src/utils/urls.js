@@ -3,7 +3,6 @@ export const API_CREATE_CHAT = 'api/chats/new/'
 
 export const API_CHAT_INFO = chatId => `/api/chats/info/${chatId}/`
 export const API_CHAT_MESSAGES = chatId => `api/chats/poll/${chatId}/`
-export const API_CHAT_LAST_MESSAGE = chatId => `api/chats/poll/last/${chatId}/`
 export const API_CHAT_CREATE_MESSAGE = chatId => `api/chats/poll/${chatId}/new/`
 
 export const LOGIN = '/login/'

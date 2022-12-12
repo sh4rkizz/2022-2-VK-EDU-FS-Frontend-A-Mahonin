@@ -2,12 +2,11 @@ import './Header.scss'
 
 import {Button, Text} from '../../Atoms'
 import setUserSettings from '../../../utils/SetUserSettings'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {applyUserSettingsChange} from '../../../slices/user'
 
 
 export function ProfileEditHeader({values}) {
-    const user = useSelector(state => state.user.userSettings)
     const dispatch = useDispatch()
 
     //TODO rework

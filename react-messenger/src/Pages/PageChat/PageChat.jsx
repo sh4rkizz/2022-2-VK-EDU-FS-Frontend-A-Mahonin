@@ -23,8 +23,8 @@ export const PageChat = () => {
             if (response) setTitle(response)
         }
 
-        let titlesInterval = setInterval(titleHandler, 3000)
-        let chatsInterval = setInterval(() => pollNotActiveChats({chats: chats, activeChat: activeChat}), 3000)
+        let titlesInterval = setInterval(titleHandler, 10000)
+        let chatsInterval = setInterval(() => pollNotActiveChats({chats: chats, activeChat: activeChat}), 2000)
 
         return () => {
             clearInterval(titlesInterval)
