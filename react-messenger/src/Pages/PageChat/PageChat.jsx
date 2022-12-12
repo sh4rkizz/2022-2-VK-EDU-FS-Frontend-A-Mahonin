@@ -30,7 +30,7 @@ export const PageChat = () => {
             clearInterval(titlesInterval)
             clearInterval(chatsInterval)
         }
-    }, [])
+    })
 
     if (!chatId) return <PageNotFound/>
     dispatch(setActiveChat({id: chatId, title: title}))

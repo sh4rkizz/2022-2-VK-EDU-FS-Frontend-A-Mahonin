@@ -17,7 +17,7 @@ export const ChatContent = () => {
         const interval = setInterval(messagesHandler, 3000)
 
         return () => clearInterval(interval)
-    }, [])
+    })
 
     return <div className='content-chat'>
         {messages.map(message => <Fragment key={message.id}>

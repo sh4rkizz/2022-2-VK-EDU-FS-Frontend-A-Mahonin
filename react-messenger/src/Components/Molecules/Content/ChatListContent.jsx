@@ -64,7 +64,7 @@ const Chat = ({chatId}) => {
         const interval = setInterval(chatHandler, 5000)
 
         return () => clearInterval(interval)
-    }, [])
+    })
 
     if (!chatLastMessage.id) return
 
@@ -85,7 +85,7 @@ const Chats = () => {
         const interval = setInterval(chatListHandler, 10000)
 
         return () => clearInterval(interval)
-    }, [])
+    })
 
     return chatList.map(chat => <Chat chatId={chat.id}/>)
 }
