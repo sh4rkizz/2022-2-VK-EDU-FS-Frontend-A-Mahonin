@@ -2,6 +2,7 @@ import {useState, Fragment} from 'react'
 
 import {ProfileEditContent, ProfileEditHeader} from '../../Components/Molecules'
 import getUserSettings from '../../utils/GetUserSettings'
+import {useSelector} from 'react-redux'
 
 
 export function PageEditProfile() {

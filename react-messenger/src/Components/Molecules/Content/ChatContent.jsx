@@ -1,11 +1,23 @@
 import './Content.scss'
-import {Fragment} from 'react'
+import {Fragment, useEffect, useState} from 'react'
 import {Message} from '../../Atoms'
 import {useSelector} from 'react-redux'
+import {pollMessages} from '../../../utils'
 
 
-export function ChatContent({messages}) {
-    // const messages = useSelector(state => state.messages.messages)
+export const ChatContent = () => {
+    const chatId = useSelector(state => state.activeChat.chat.id)
+    const [messages, setMessages] = useState([])
+
+    useEffect(() => {
+        const messagesHandler = async () => {
+            const response = await pollMessages(chatId)
+            if (response) setMessages(response)
+        }
+        const interval = setInterval(messagesHandler, 3000)
+
+        return () => clearInterval(interval)
+    }, [])
 
     return <div className='content-chat'>
         {messages.map(message => <Fragment key={message.id}>

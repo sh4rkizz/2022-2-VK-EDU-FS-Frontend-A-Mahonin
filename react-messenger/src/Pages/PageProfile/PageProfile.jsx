@@ -7,13 +7,12 @@ export function PageProfile() {
 
     const user = {
         username: 'Jennifer',
-        online_at: 'Was online 2 minutes ago',
         phoneNumber: '+78005553535',
     }
 
     return (
         <Fragment>
-            <ProfileHeader title={user.username} online_at={user.online_at}/>
+            <ProfileHeader title={user.username}/>
             <ProfileContent phoneNumber={user.phoneNumber}/>
         </Fragment>
     )

@@ -12,7 +12,7 @@ export const settingsSlice = createSlice({
         changePreviewLinks: (state) => state.preview_links = !state.preview_links,
         changeNotifications: (state) => state.notifications = !state.notifications,
         changeSound: (state) => state.sound = !state.sound,
-        changeVibration: (state) => state.vibration = !state.vibration
+        changeVibration: (state) => state.vibration = !state.vibration,
     }
 })
 

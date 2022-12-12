@@ -2,20 +2,26 @@ import './Footer.scss'
 
 import {Fragment, useState} from 'react'
 
-import {Button, Input, Image} from '../../Atoms'
+import {Button, Image, Input} from '../../Atoms'
+import {useSelector} from 'react-redux'
+import {buildMessage, sendLocation, sendMessage} from '../../../utils'
+import {AudioRecorder} from './AudioRecorder'
 
-export function ChatFooter({send, chatId}) {
-    const [audio, setAudio] = useState([])
+export const ChatFooter = () => {
+    const chatId = useSelector(state => state.activeChat.chat.id)
     const [image, setImage] = useState([])
+    const [audio, setAudio, isRecording, startRecording, stopRecording] = AudioRecorder()
 
-    const buildMessage = ({text, image, audio}) => {
-        return {
-            chat: chatId,
-            text: text,
-            image: image,
-            audio: audio
-        }
+    const fileHandler = async (event) => {
+        event.preventDefault()
+        const file = event.target.files[0]
+        const fileReader = new FileReader()
+
+        fileReader.onload = () => setImage([fileReader.result, URL.createObjectURL(file)])
+
+        if (file) await fileReader.readAsDataURL(file)
     }
+
 
     const handleEnterKeyPress = (event) => {
         if (event.key !== 'Enter') return
@@ -24,73 +30,42 @@ export function ChatFooter({send, chatId}) {
         if (!text && !(image.length ^ audio.length)) return
 
         event.target.value = ''
-        //, image: getImageSource(), audio: getAudioSource()
-        send(buildMessage({text: text}))
+        sendMessage({
+            message: buildMessage({
+                text: text,
+                image: image[0],
+                audio: audio[0]
+            }),
+            chatId: chatId
+        }).then(() => console.log('message-sent'))
 
         setAudio([])
         setImage([])
     }
 
-    // const sendImage = image => {
-    //     const data = new FormData()
-    //     data.append('image', image)
-    //
-    //     const response = fetch('https://tt-front.vercel.app/upload', {
-    //         method: 'POST',
-    //         body: data,
-    //     })
-    //
-    //     return response.json()
-    // }
+    const ImagePreview = () => image.length ? <Image
+        className='image-preview' src={image[1]}
+        alt='preview' onClick={() => setImage([])}
+    /> : ''
 
-    const sendAudio = audio => {
-        const data = new FormData()
-        data.append('audio', audio)
+    const ImageInput = () => <Input
+        onChange={fileHandler} name='image' type='file' id='image'
+        onKeyDown={handleEnterKeyPress} accept='image/*'
+    />
 
-        const response = fetch('https://tt-front.vercel.app/upload', {
-            method: 'POST',
-            body: data,
-        })
-
-        return response.json()
-    }
-
-    // const getImageSource = () => sendImage(image[0]).then(resp => resp['imgSrc'])
-    // const getAudioSource = () => sendAudio(audio).then(resp => resp["audioSrc"]);
-
-    const fileHandler = (event) => {
-        const file = event.target.files[0]
-        const fileReader = new FileReader()
-
-        fileReader.onload = () => setImage([fileReader.result, URL.createObjectURL(event.target.files[0])])
-
-        if (file) fileReader.readAsDataURL(file)
-    }
-
-    const positionFailure = () => alert('This browser is denying geolocation access')
-    const positionSuccess = (pos) => send(buildMessage({
-            text: `https://www.openstreetmap.org/#map=18/${pos.coords.latitude}/${pos.coords.longitude}`,
-        })
-    )
-
-    const getLocation = () => navigator.geolocation.getCurrentPosition(positionSuccess, positionFailure)
+    const RecordingView = () => isRecording ? <span>Recording</span> : ''
 
     return (
         <Fragment>
-            {image.length && <Image
-                className='image-preview' src={image[1]}
-                alt='preview' onClick={() => setImage([])}/>}
-
-            <Input onChange={fileHandler}
-                   name='image'
-                   type='file' id='image'
-                   onKeyDown={handleEnterKeyPress}
-                   accept='image/*'/>
+            <ImagePreview/>
+            <ImageInput/>
 
             <footer>
+                <RecordingView/>
                 <Input className='chat-input' placeholder='Enter a message' onKeyDown={handleEnterKeyPress}/>
-                <Button className='location-button' name='location_on' onClick={getLocation}/>
-                <Button className='record-voice-button' name='keyboard_voice'/>
+                <Button className='location-button' name='location_on' onClick={() => sendLocation(chatId)}/>
+                <Button className='record-voice-button' name='keyboard_voice'
+                        onMouseDown={startRecording} onMouseUp={stopRecording}/>
                 <label className='attach-button-label' htmlFor='image'>attachment</label>
             </footer>
         </Fragment>

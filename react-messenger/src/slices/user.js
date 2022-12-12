@@ -5,6 +5,12 @@ export const userSlice = createSlice({
     initialState: {
         userId: '2',
         isUserAuthValid: false,
+        onlineAt: 'Was online some time ago',
+        userSettings: {
+            fullName: '',
+            username: '',
+            bio: ''
+        }
     },
     reducers: {
         loginUser: (state, action) => {
@@ -15,9 +21,10 @@ export const userSlice = createSlice({
             state.isUserAuthValid = false
             state.userId = '2'
         },
-        setUserId: (state, action) => state.userId = action.payload.userId
+        setUserId: (state, action) => state.userId = action.payload.userId,
+        applyUserSettingsChange: (state, action) => state.userSettings = action.payload.settings
     }
 })
 
-export const {loginUser, logoutUser} = userSlice.actions
+export const {loginUser, logoutUser, setUserId, applyUserSettingsChange} = userSlice.actions
 export default userSlice.reducer

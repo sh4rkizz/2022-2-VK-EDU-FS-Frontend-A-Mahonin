@@ -1,9 +1,11 @@
 import GoogleIcon from '@mui/icons-material/Google'
 import {Text, SpanIcon, Button} from '../../Atoms'
+import {LOGIN} from '../../../utils/urls'
 
 
 export function LoginContent() {
-    const googleLoginUrl = 'login/'
+    const googleLoginUrl = LOGIN
+
     const login = () => console.log('it didnt work..again')
 
     return (
