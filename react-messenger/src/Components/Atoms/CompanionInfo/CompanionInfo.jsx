@@ -4,7 +4,7 @@ import {Text} from '../Text/Text'
 import {Image} from '../Image/Image'
 import {useSelector} from 'react-redux'
 
-// TODO rework activeChat-user-online system
+// TODO rework User-online system
 function TitleAndMeta() {
     const title = useSelector(state => state.activeChat.chat.title)
     const onlineAt = useSelector(state => state.user.onlineAt)

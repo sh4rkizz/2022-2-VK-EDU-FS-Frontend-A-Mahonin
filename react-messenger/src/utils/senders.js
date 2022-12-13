@@ -1,5 +1,5 @@
 import {buildMessage} from './builders'
-import {API_CHAT_CREATE_MESSAGE, API_CHAT_MESSAGES, API_CREATE_CHAT, VK_BACKEND_CREATE_MESSAGE} from './urls'
+import {API_CHAT_CREATE_MESSAGE, API_CREATE_CHAT, VK_BACKEND_CREATE_MESSAGE} from './urls'
 import {receiveCSRF} from './getCSRF'
 
 const send = ({message, chatId}) => {
