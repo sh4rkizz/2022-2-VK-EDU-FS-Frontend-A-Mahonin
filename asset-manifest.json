@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.bf52a574.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.ce95b2f2.js",
+    "main.css": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.aa784f17.css",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.81fb8ba4.js",
     "static/js/787.4418018c.chunk.js": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/787.4418018c.chunk.js",
     "static/media/material-icons-two-tone.woff": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
     "static/media/material-icons-two-tone.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
@@ -14,12 +14,12 @@
     "static/media/material-icons-sharp.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons-sharp.219aa9140e099e6c72ed.woff2",
     "static/media/material-icons.woff2": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/media/material-icons.0c35d18bf06992036b69.woff2",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/index.html",
-    "main.bf52a574.css.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.bf52a574.css.map",
-    "main.ce95b2f2.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.ce95b2f2.js.map",
+    "main.aa784f17.css.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/css/main.aa784f17.css.map",
+    "main.81fb8ba4.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/main.81fb8ba4.js.map",
     "787.4418018c.chunk.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Mahonin/static/js/787.4418018c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf52a574.css",
-    "static/js/main.ce95b2f2.js"
+    "static/css/main.aa784f17.css",
+    "static/js/main.81fb8ba4.js"
   ]
 }
