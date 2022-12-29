@@ -1,6 +1,7 @@
 {
   "name": "exam",
   "version": "0.1.0",
+  "homepage": "https://sh4rkizz.github.io/2022-2-VK-EDU-FS-Frontend-A-Mahonin",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
