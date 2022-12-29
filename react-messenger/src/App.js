@@ -8,7 +8,7 @@ import {GoogleOAuthProvider} from '@react-oauth/google'
 
 
 export const App = () => {
-    const [isAuth] = useState(false)
+    const [isAuth] = useState(true)
 
     const RequireAuth = ({basePage}) => {
         if (!isAuth) return <Navigate to='/login'/>
