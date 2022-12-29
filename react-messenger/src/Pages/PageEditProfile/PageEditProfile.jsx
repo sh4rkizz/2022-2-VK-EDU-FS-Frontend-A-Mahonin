@@ -1,16 +1,15 @@
-import {useState, Fragment} from 'react'
+import React, { useState, Fragment } from 'react'
 
-import {ProfileEditContent, ProfileEditHeader} from '../../Components/Molecules'
+import { ProfileEditContent, ProfileEditHeader } from '../../Components/Molecules'
 import getUserSettings from '../../utils/GetUserSettings'
 
+export function PageEditProfile () {
+  const [values, setValues] = useState(getUserSettings())
 
-export function PageEditProfile() {
-    const [values, setValues] = useState(getUserSettings())
-
-    return (
-        <Fragment>
-            <ProfileEditHeader values={values}/>
-            <ProfileEditContent values={values} setValues={setValues}/>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <ProfileEditHeader values={ values }/>
+      <ProfileEditContent values={ values } setValues={ setValues }/>
+    </Fragment>
+  )
 }

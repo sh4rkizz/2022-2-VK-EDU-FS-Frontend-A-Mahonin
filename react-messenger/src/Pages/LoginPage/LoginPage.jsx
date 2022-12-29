@@ -1,5 +1,6 @@
-import {LoginContent} from '../../Components/Molecules'
+import { LoginContent } from '../../Components/Molecules'
+import React from 'react'
 
-export function LoginPage() {
-    return <LoginContent/>
+export function LoginPage () {
+  return <LoginContent/>
 }

@@ -1,14 +1,15 @@
-const LoadingCurve = () => {
-    return <span className='face'><span className='circle'/></span>
+import React from 'react'
 
+const LoadingCurve = () => {
+  return <span className='face'><span className='circle'/></span>
 }
 
 export const LoadingScreen = () => {
-    return (
-        <div className='loader'>
-            <LoadingCurve/>
-            <LoadingCurve/>
-            <LoadingCurve/>
-        </div>
-    )
+  return (
+    <div className='loader'>
+      <LoadingCurve/>
+      <LoadingCurve/>
+      <LoadingCurve/>
+    </div>
+  )
 }

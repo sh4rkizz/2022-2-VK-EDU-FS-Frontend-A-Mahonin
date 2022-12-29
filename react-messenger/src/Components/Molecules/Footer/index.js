@@ -1,1 +1,1 @@
-export {ChatFooter} from './ChatFooter'
+export { ChatFooter } from './ChatFooter'

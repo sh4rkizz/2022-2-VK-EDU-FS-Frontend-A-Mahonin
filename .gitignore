@@ -133,3 +133,5 @@ dist
 /desktop.ini
 */build/
 */package-lock.json
+
+*/ts/utils/*.js
