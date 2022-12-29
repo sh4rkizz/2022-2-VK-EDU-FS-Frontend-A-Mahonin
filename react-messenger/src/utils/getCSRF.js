@@ -1,5 +1,5 @@
 export function receiveCSRF() {
     if (!document) return
-
-    return document.cookie.substring(10)
+    console.log(document.cookie)
+    return document.cookie.substring(10, 42)
 }

@@ -1,9 +1,28 @@
 @import '../../Index';
 @import './ButtonTransitions';
 
+.logout-button {
+  background-color: $no-background;
+  border: 1px solid lightgrey;
+  height: 1.5em;
+  width: 100%;
+  padding-left: 1em;
+  display: flex;
+  align-items: center;
+  color: red;
+}
+
 .login-type-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45vh;
+  text-decoration: none;
+}
+
+.login-button {
   cursor: pointer;
-  width: 73vw;
+  font-size: 4vh;
   color: white;
   background-color: $no-background;
   border: none;

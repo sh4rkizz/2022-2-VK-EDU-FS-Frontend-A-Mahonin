@@ -67,10 +67,11 @@ const Chats = () => {
     useEffect(() => {
         const chatListHandler = async () => setChatList(await pollChats())
         const interval = setInterval(chatListHandler, 2000)
+        console.log(chatList)
 
         return () => clearInterval(interval)
     })
-
+    console.log(chatList)
     return chatList.map(chat => chat ? <Chat chat={chat}/> : '')
 }
 

@@ -104,31 +104,24 @@
 
   .login-type-row {
     @extend %row-oriented;
+    align-items: center;
 
-    width: 85%;
-    height: 8vh;
+    width: 45vh;
+    height: 10vh;
     background-color: #F44336;
-    border-radius: 2vh;
 
-    .icon-box {
+    .login-type-icon {
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 27vw;
+      width: 13vh;
       height: 100%;
+      padding: 2vh;
       background-color: #C53126;
-
-      border-bottom-left-radius: 2vh;
-      border-top-left-radius: 2vh;
-
-      .login-type-icon {
-        color: white;
-        font-size: 4vh;
-      }
     }
   }
 }
-
 
 
 .content-not-found {

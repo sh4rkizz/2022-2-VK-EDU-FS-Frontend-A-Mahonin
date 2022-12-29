@@ -8,7 +8,7 @@ function Particle({fTagContent, sTagContent, inputName, inputHandler, inputPlace
         <span className='particle'>
             <span className='element'>
                 <Text className='profile-tag' content={fTagContent}/>
-                <Input className='profile-input' name={inputValue} value={inputValue}
+                <Input className='profile-input' name={inputName} value={inputValue}
                        placeholder={inputPlaceholder} handler={inputHandler}/>
             </span>
             <Text className='profile-tag' content={sTagContent} display={display ? display : 'contents'}/>
@@ -19,7 +19,7 @@ function Particle({fTagContent, sTagContent, inputName, inputHandler, inputPlace
 export function ProfileEditContent({setValues, values}) {
     const handleInputChange = (e) => {
         const {name, value} = e.target
-        // TODO dispatch on each prop
+
         setValues({
             ...values,
             [name]: value
@@ -27,7 +27,7 @@ export function ProfileEditContent({setValues, values}) {
     }
 
     return (
-        <div className='content-profile'>
+        <div className='profile-edit-content'>
             <Image className='profile-avatar'/>
 
             <Particle fTagContent='Full name' inputName='fullName' inputPlaceholder='Enter your name'
