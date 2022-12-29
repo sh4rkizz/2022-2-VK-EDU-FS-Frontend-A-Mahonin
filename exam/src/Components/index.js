@@ -1,4 +1,4 @@
 export { Text } from './Text/Text'
 export { LangSwitch } from './LangSwitch/LangSwitch'
-export {TranslateTypeButton} from './TranslateTypeButton/TranslateTypeButton'
-export {OpenHistoryButton} from './OpenHistoryButton/OpenHistoryButton'
+export { TranslateTypeButton } from './Button/Button'
+export { OpenHistoryButton } from './Button/Button'

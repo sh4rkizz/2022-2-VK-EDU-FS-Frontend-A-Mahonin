@@ -1,17 +1,12 @@
-import { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
+import { GlobalHeader } from '../Molecules'
+import { TranslationHistory } from '../Molecules/TranslationHistory/TranslationHistory'
 
 export const HistoryPage = () => {
-  const [translations, setTranslations] = useState([])
-
-  useEffect(() => {
-    if (!localStorage) return
-
-    setTranslations(JSON.parse(localStorage.getItem('translations')))
-  }, [translations])
-
   return (
-    <div className='history-book'>
-      { translations.map(translation => <Fragment>{ translation }</Fragment>) }
-    </div>
+    <Fragment>
+      <GlobalHeader content="History"/>
+      <TranslationHistory/>
+    </Fragment>
   )
 }

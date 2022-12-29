@@ -1,5 +1,6 @@
+import './LangSwitch.scss'
 import React from 'react'
 
-export const LangSwitch = ({language}) => {
-  return <></>
+export const LangSwitch = ({ value, language }) => {
+  return <option className="language-option" value={ value }>{ language }</option>
 }

@@ -1,15 +1,18 @@
-import React, { Fragment } from 'react'
-import { GlobalHeader, WorkField } from '../Molecules'
+import './Pages.scss'
+import React from 'react'
+import { GlobalHeader, LangSwitchRow, MainField } from '../Molecules'
 import { OpenHistoryButton, TranslateTypeButton } from '../Components'
 
 export const TranslatePage = () => {
   return (
-    <Fragment>
-      <GlobalHeader/>
+    <div className='page-layout'>
+      <GlobalHeader content="VK translate"/>
       <TranslateTypeButton/>
-      <WorkField/>
+      <LangSwitchRow/>
+
+      <MainField/>
 
       <OpenHistoryButton/>
-    </Fragment>
+    </div>
   )
 }

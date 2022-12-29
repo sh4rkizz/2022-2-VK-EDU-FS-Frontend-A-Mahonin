@@ -4,16 +4,19 @@ export const activeLangSlice = createSlice({
   name: 'language-slice',
 
   initialState: {
-    startLanguage: '',
-    translationLanguage: ''
+    translationLang: 'ru',
+    translatedText: 'Translate Text'
   },
 
   reducers: {
-    setTranslationLanguage: (state, action) => {
-      state.translationLanguage = action.payload.translationLanguage
+    setTranslationLang: (state, action) => {
+      state.translationLang = action.payload.translationLang
+    },
+    setTranslatedText: (state, action) => {
+      state.translatedText = action.payload.translatedText
     }
   }
 })
 
-export const { setTranslationLanguage } = activeLangSlice.actions
+export const { setTranslationLang, setTranslatedText } = activeLangSlice.actions
 export default activeLangSlice.reducer

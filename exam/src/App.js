@@ -1,5 +1,3 @@
-import './App.css'
-
 import { TranslatePage } from './Pages/TranslatePage'
 import { HistoryPage } from './Pages/HistoryPage'
 import { Navigate, Route, Routes } from 'react-router-dom'
