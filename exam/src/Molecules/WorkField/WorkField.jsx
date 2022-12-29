@@ -1,8 +1,9 @@
 import './WorkField.scss'
 import { LangSwitchRow } from '../LangSwitchRow/LangSwitchRow'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { performTranslate } from '../../util'
 
-const TRANSLATION_URL = ({ code }) => `https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=${ code }&api-version=3.0&profanityAction=NoAction&textType=plain`
+const langPick = 'ru'
 
 const InsertArea = ({ translate }) => {
   const handleEnterKeyPress = (event) => {
@@ -11,44 +12,38 @@ const InsertArea = ({ translate }) => {
     const text = event.target.value.trim()
     if (!text) return
 
-    translate({ text })
+    translate({ text: text })
   }
 
   return <input className="insert-area" placeholder="Insert your text here" onKeyDown={ handleEnterKeyPress }/>
 }
 
 const ResultArea = ({ text }) => {
-  return <span className="result-area">text</span>
+  return <span className="result-area">{ text }</span>
 }
 
 export const WorkField = () => {
   const [translatedText, setTranslatedText] = useState('')
 
+  useEffect(() => {
+    const translated = performTranslate({ text: text, translateTo: langPick })
+    setTranslatedText(translated)
+  })
+
   const translate = ({ text }) => {
-    let translated = localStorage?.getItem(text) ?? performTranslate({ text: text, translateTo: 'ru' })
+    let translations = []
 
-    // if (!localStorage) return
-    // localStorage.setItem(text, JSON.stringify(translated))
-    //
-    setTranslatedText(text)
-  }
+    const storageTranslations = localStorage?.getItem('translations').text ??
 
-  const performTranslate = ({ text, translateTo }) => {
-    text = 'Hello world'
-    const options = {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'X-RapidAPI-Key': 'df5ffa97f3mshfa5277882376ad1p1db7b7jsnb69ba524116a',
-        'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
-      },
-      body: `[{"Text":"${ text }"}]`
-    }
+    const translated = performTranslate({ text: text, translateTo: langPick })
 
-    fetch(TRANSLATION_URL({ code: translateTo }), options)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(err => console.error(err))
+    setTranslatedText(translated)
+
+    if (localStorage?.length) translations = localStorage.getItem('translations')
+
+    translations.push(`${ text } -> ${ translated }`)
+
+    localStorage.setItem('translations', JSON.stringify(translations))
   }
 
   return (
@@ -58,7 +53,7 @@ export const WorkField = () => {
 
       <div className="working-area">
         <InsertArea translate={ translate }/>
-        <ResultArea translatedText={ translatedText }/>
+        <ResultArea text={ translatedText }/>
       </div>
 
     </div>
