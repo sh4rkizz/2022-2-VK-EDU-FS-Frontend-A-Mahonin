@@ -1,0 +1,61 @@
+@import '../../Index';
+@import './ButtonTransitions';
+
+.logout-button {
+  background-color: $no-background;
+  border: 1px solid lightgrey;
+  height: 1.5em;
+  width: 100%;
+  padding-left: 1em;
+  display: flex;
+  align-items: center;
+  color: red;
+}
+
+.login-type-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45vh;
+  text-decoration: none;
+}
+
+.login-button {
+  cursor: pointer;
+  font-size: 4vh;
+  color: white;
+  background-color: $no-background;
+  border: none;
+}
+
+.search, .more, .apply, .back, .menu {
+  // TODO Group as a header-button
+  @extend %header-button-props;
+}
+
+
+.submit-button, .record-voice-button, .location-button {
+  @extend %footer-button-props;
+}
+
+.attach-button {
+  @extend %footer-button-props;
+
+  //margin-left: auto;
+  transition: color 0.3s ease;
+}
+
+.new-chat-button {
+  @extend %button-props;
+
+  background-color: $tag-color;
+  border-radius: 50%;
+  position: fixed;
+  height: 10vh;
+  width: 10vh;
+  bottom: 5vh;
+  right: 5vw;
+  border: 0;
+
+  transition: scale 1s;
+}
