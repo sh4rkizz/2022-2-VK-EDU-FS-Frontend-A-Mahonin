@@ -1,0 +1,74 @@
+@import '../../Index';
+
+%title {
+  @extend %line-wrap;
+
+  font-size: $title-font-size;
+  color: white;
+}
+
+.page-title, .chat-title, .companion-name {
+  @extend %title;
+  width: 100%;
+}
+
+.companion-name {
+  font-size: 3vh;
+}
+
+.chat-title {
+  color: #191919;
+}
+
+.status {
+  @extend %font-props;
+
+  font-family: material icons, serif;
+  align-self: center;
+  color: $main-color;
+}
+
+.companion-meta {
+  @extend %font-props;
+
+  color: $meta-color;
+}
+
+.profile-tag {
+  color: gray;
+  font-size: 2vh;
+  line-height: 1.5em;
+}
+
+.last-message {
+  @extend %font-props;
+  @extend %line-wrap;
+
+  color: $meta-color;
+  padding-right: 2vw;
+}
+
+.message-text {
+  @extend %font-props;
+
+  align-self: flex-end;
+  color: black;
+}
+
+.message-date {
+  @extend %font-props;
+
+  color: $meta-color;
+}
+
+.chat-list-date {
+  color: gray;
+  line-height: 2vh;
+  font-size: 2vh;
+}
+
+
+.settings-text {
+  color: #282828;
+  font-size: 3vh;
+}

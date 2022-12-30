@@ -1,0 +1,61 @@
+@import 'material-icons/iconfont/material-icons.css';
+
+$font-stack: Helvetica, Arial, sans-serif;
+$main-color: #741B47;
+$message-color: #F3E5F5;
+$no-background: #3330;
+$title-font-size: 3vh;
+$tag-color: #FFD54F;
+$meta-color: #a0a0a0;
+$button-size: 4vh;
+
+%font-props {
+  font-size: 2vh;
+  line-height: 2vh;
+}
+
+%row-oriented {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+%column-oriented {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+%line-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%button-props {
+  cursor: pointer;
+  height: 100%;
+  align-items: center;
+  padding: 1vh;
+  justify-content: center;
+  font-size: $button-size;
+  background-color: $no-background;
+  font-family: material icons, serif;
+}
+
+%header-button-props {
+  @extend %button-props;
+
+  transition: all 1s ease;
+  display: flex;
+  color: white;
+  border: 0;
+}
+
+%footer-button-props {
+  @extend %button-props;
+
+  color: gray;
+  border: 0;
+}
