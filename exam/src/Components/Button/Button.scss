@@ -1,0 +1,24 @@
+@import 'material-icons';
+
+.translate-type-button {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  border: 1px solid lightgrey;
+  margin-left: 5vw;
+  width: 15vw;
+  justify-content: center;
+
+  :active {
+    background-color: cornflowerblue;
+  }
+}
+
+.history-button {
+  text-decoration: none;
+  font-size: 8vh;
+  top: 11vh;
+  left: 45vw;
+  position: fixed;
+  color: lightgrey;
+}

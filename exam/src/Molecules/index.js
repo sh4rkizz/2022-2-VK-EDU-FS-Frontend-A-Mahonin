@@ -1,0 +1,5 @@
+export { GlobalHeader } from './GlobalHeader/GlobalHeader'
+export { InsertArea } from './WorkingFields/InsertArea'
+export { TranslatedArea } from './WorkingFields/TranslatedArea'
+export { LangSwitchRow } from './LangSwitchRow/LangSwitchRow'
+export { MainField } from './MainField/MainField'
