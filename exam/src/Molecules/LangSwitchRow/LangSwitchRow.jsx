@@ -1,12 +1,14 @@
 import './LangSwitchRow.scss'
 import React, { Fragment, useEffect, useState } from 'react'
 import { getLanguageSet } from '../../util'
-import { LangSwitch } from '../../Components'
+import { LangSwitchOption } from '../../Components'
 import { useDispatch, useSelector } from 'react-redux'
-import { setTranslationLang } from '../../slices/LangSlice'
+import { setTranslateToLangCode, setTranslateFromLangCode } from '../../slices/LangSlice'
 
 export const LangSwitchRow = () => {
-  const activeLanguage = useSelector(state => state.activeLanguage.translationLang)
+  const activeToLanguage = useSelector(state => state.activeLanguage.translateToLangCode)
+  const activeFromLanguage = useSelector(state => state.activeLanguage.translateFromLangCode)
+
   const dispatch = useDispatch()
 
   const [languageSet, setLanguageSet] = useState([])
@@ -25,19 +27,39 @@ export const LangSwitchRow = () => {
   const set = []
   Object.entries(languageSet[0][1]).forEach(rep => set.push([rep[1].name, rep[0]]))
 
-  const handleChange = (event) => {
+  const handleChangeTo = (event) => {
     event.preventDefault()
-    dispatch(setTranslationLang({translationLang: event.target.value}))
+    dispatch(setTranslateToLangCode({ translateToLangCode: event.target.value }))
+  }
+
+  const handleChangeFrom = (event) => {
+    event.preventDefault()
+    dispatch(setTranslateFromLangCode({ translateFromLangCode: event.target.value }))
+  }
+
+  const OptionField = ({ activeLanguage, handler }) => {
+    return (
+      <select className="language-set" name="Language" value={ activeLanguage } onChange={ handler }>
+        { set.map(([lang, code]) => <Fragment key={ code }>
+          <LangSwitchOption language={ lang } value={ code }/>
+        </Fragment>) }
+      </select>
+    )
   }
 
   return (
-    <label style={ { paddingLeft: '5vh' } }>
-      Pick a language
-      <select className="language-set" name="Language" value={ activeLanguage } onChange={ handleChange }>
-        { set.map(([lang, code]) => <Fragment key={ code }>
-          <LangSwitch language={ lang } value={ code }/>
-        </Fragment>) }
-      </select>
-    </label>
+    <Fragment>
+
+      <label style={ { paddingLeft: '5vh' } }>
+        Pick a from language
+        <OptionField activeLanguage={ activeFromLanguage } handler={ handleChangeFrom }/>
+      </label>
+
+      <label style={ { paddingLeft: '5vh' } }>
+        Pick a to language
+        <OptionField activeLanguage={ activeToLanguage } handler={ handleChangeTo }/>
+      </label>
+
+    </Fragment>
   )
 }

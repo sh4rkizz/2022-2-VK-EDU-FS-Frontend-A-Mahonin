@@ -1,4 +1,4 @@
-const LANGUAGE_SET_URL = 'https://microsoft-translator-text.p.rapidapi.com/languages?api-version=3.0'
+import { langSetUrl } from './urls'
 
 export const getLanguageSet = async () => {
   const options = {
@@ -10,7 +10,7 @@ export const getLanguageSet = async () => {
     }
   }
 
-  return await fetch(LANGUAGE_SET_URL, options)
+  return await fetch(langSetUrl, options)
     .then(response => response.json())
     .then(response => Object.entries(response))
     .catch(err => console.error(err))

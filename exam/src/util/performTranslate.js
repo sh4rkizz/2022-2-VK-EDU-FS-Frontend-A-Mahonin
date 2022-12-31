@@ -1,6 +1,6 @@
-const TRANSLATION_URL = ({ code }) => `https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=${ code }&api-version=3.0&profanityAction=NoAction&textType=plain`
+import { performTranslateUrl } from './urls'
 
-export const performTranslate = async ({ text, translateTo }) => {
+export const performTranslate = async ({ translateFrom, text, translateTo }) => {
   const options = {
     method: 'POST',
     headers: {
@@ -11,7 +11,7 @@ export const performTranslate = async ({ text, translateTo }) => {
     body: `[{"Text":"${ text }"}]`
   }
 
-  return await fetch(TRANSLATION_URL({ code: translateTo }), options)
+  return await fetch(performTranslateUrl({ from: translateFrom, to: translateTo }), options)
     .then(response => response.json())
     .catch(err => console.error(err))
 }
