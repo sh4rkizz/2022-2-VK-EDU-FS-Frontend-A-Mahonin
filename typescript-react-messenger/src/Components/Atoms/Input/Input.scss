@@ -1,0 +1,41 @@
+@import '../../Index.scss';
+
+
+%no-outline-input {
+  border: none;
+  outline: none;
+  background-color: $no-background;
+}
+
+input[type=checkbox], input[type="file"] {
+  display: none;
+}
+
+.chat-input {
+  @extend %no-outline-input;
+
+  width: 100%;
+  padding-left: 1vh;
+  font-size: 2.5vh;
+}
+
+.profile-input {
+  @extend %no-outline-input;
+
+  font-size: 3vh;
+}
+
+.image-input {
+  @extend %no-outline-input;
+
+  position: fixed;
+  top: 0;
+  height: 50vh;
+  width: 100%;
+
+  .drop_zone {
+    border: 1px dashed blue;
+    width: 90%;
+    height: 50%;
+  }
+}

@@ -1,5 +1,0 @@
-export {ChatListHeader} from './ChatListHeader'
-export {ChatHeader} from './ChatHeader'
-export {ProfileEditHeader} from './ProfileEditHeader'
-export {SettingsHeader} from './SettingsHeader'
-export {ProfileHeader} from './ProfileHeader'
