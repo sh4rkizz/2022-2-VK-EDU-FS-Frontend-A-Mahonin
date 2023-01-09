@@ -1,0 +1,28 @@
+@import 'src/Components/Index';
+
+
+.content-settings {
+  @extend %column-oriented;
+
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.content-row {
+  @extend %row-oriented;
+
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+  height: 7vh;
+
+  padding: 2vh;
+
+  border-bottom: 1px solid lightgray;
+
+  :nth-child(3) {
+    margin-left: auto;
+    font-size: 3vh;
+    transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+  }
+}

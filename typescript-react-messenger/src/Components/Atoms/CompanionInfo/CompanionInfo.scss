@@ -1,0 +1,15 @@
+@import 'src/Components/Index';
+
+.companion {
+  @extend %row-oriented;
+
+  gap: 1vw;
+  height: 80%;
+
+  .companion-info {
+    @extend %column-oriented;
+
+    padding-left: 0.5vh;
+    justify-content: center;
+  }
+}
